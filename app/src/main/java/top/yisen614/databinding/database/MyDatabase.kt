@@ -7,18 +7,18 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import android.os.AsyncTask
 import top.yisen614.databinding.dao.WordDao
+import top.yisen614.databinding.entity.User
 import top.yisen614.databinding.entity.Word
 
-
-@Database(entities = [Word::class], version = 1)
-abstract class WordRoomDatabase : RoomDatabase() {
+@Database(entities = [Word::class, User::class], version = 1)
+abstract class MyDatabase : RoomDatabase() {
 
     abstract fun wordDao(): WordDao
 
     companion object {
 
         @Volatile
-        var INSTANCE: WordRoomDatabase? = null
+        var INSTANCE: MyDatabase? = null
 
         val sRoomDatabase = object : RoomDatabase.Callback() {
             override fun onOpen(db: SupportSQLiteDatabase) {
@@ -27,14 +27,15 @@ abstract class WordRoomDatabase : RoomDatabase() {
             }
         }
 
-        fun getDatabase(context: Context): WordRoomDatabase {
+
+        fun getDatabase(context: Context): MyDatabase {
             if (INSTANCE == null) {
-                synchronized(WordRoomDatabase::class) {
+                synchronized(MyDatabase::class) {
                     if (INSTANCE == null) {
-                        // Create database here
+                        // 此处创建数据库实例, 名称为database的Sqlite文件
                         INSTANCE = Room.databaseBuilder(
                             context.applicationContext,
-                            WordRoomDatabase::class.java, "table_word"
+                            MyDatabase::class.java, "database"
                         ).fallbackToDestructiveMigration()
                             .addCallback(sRoomDatabase)
                             .build()
@@ -47,7 +48,7 @@ abstract class WordRoomDatabase : RoomDatabase() {
     }
 
 
-    class PopulateDbAsync(db: WordRoomDatabase) : AsyncTask<Word, Void, Void>() {
+    class PopulateDbAsync(db: MyDatabase) : AsyncTask<Word, Void, Void>() {
         val wordDao: WordDao = db.wordDao()
 
         override fun doInBackground(vararg params: Word?): Void? {

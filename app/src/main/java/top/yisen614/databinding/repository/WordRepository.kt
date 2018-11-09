@@ -4,7 +4,7 @@ import android.app.Application
 import android.arch.lifecycle.LiveData
 import android.os.AsyncTask
 import top.yisen614.databinding.dao.WordDao
-import top.yisen614.databinding.database.WordRoomDatabase
+import top.yisen614.databinding.database.MyDatabase
 import top.yisen614.databinding.entity.Word
 
 
@@ -14,7 +14,7 @@ class WordRepository(application: Application) {
     var mAllWords: LiveData<List<Word>>
 
     init {
-        val db = WordRoomDatabase.getDatabase(application)
+        val db = MyDatabase.getDatabase(application)
         mWordDao = db.wordDao()
         mAllWords = mWordDao.getAllWords()
     }

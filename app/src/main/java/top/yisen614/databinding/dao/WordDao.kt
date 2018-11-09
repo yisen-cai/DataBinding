@@ -6,15 +6,17 @@ import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
 import top.yisen614.databinding.entity.Word
 
-
+/**
+ * 在此中加入相应查询方法
+ */
 @Dao
 interface WordDao {
     @Insert
     fun insert(word: Word)
 
-    @Query("DELETE FROM table_word")
+    @Query("DELETE FROM t_word")
     fun deleteAll()
 
-    @Query("SELECT * from table_word ORDER BY word ASC")
+    @Query("SELECT * from t_word ORDER BY word ASC")
     fun getAllWords(): LiveData<List<Word>>
 }

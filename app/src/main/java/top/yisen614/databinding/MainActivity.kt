@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         val adapter = WordListAdapter(this)
-        recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         wordViewModel = ViewModelProviders.of(this).get(WordViewModel::class.java)
         wordViewModel.mAllWords.observe(this, Observer { words ->
             adapter.wordItem = words!!
         })
+        recyclerView.adapter = adapter
     }
 }

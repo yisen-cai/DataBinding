@@ -3,25 +3,21 @@ package top.yisen614.databinding.entity
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import android.support.annotation.NonNull
 import org.jetbrains.annotations.NotNull
 
-/**
- *
- */
-@Entity(tableName = "t_word")
-class Word(word:String) {
+@Entity(tableName = "t_user")
+class User(name: String, age: Int, gender: Int) {
 
-    @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    var mId: Int = 0
+    @ColumnInfo(name = "id")
+    var id: Int = 0
 
-    @NonNull
-    @ColumnInfo(name = "word")
+    @ColumnInfo(name = "username")
     @NotNull
-    var mWord: String = ""
+    var name: String = name
 
-    init {
-        mWord = word
-    }
+    var age: Int = age
+
+    var gender: Int = gender
+
 }
