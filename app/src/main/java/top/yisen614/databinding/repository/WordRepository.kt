@@ -19,6 +19,10 @@ class WordRepository(application: Application) {
         mAllWords = mWordDao.getAllWords()
     }
 
+    fun deleteAll() {
+        DataAsyncTask(mWordDao).execute(null, 2)
+    }
+
     fun insert(word: Word) {
         DataAsyncTask(mWordDao).execute(word, 1)
     }
