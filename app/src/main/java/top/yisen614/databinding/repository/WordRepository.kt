@@ -20,16 +20,19 @@ class WordRepository(application: Application) {
     }
 
     fun insert(word: Word) {
-        InsertAsyncTask(mWordDao).execute(word)
+        DataAsyncTask(mWordDao).execute(word, 1)
     }
 
     companion object {
-        class InsertAsyncTask(dao: WordDao) : AsyncTask<Word, Void, Void>() {
+        class DataAsyncTask(dao: WordDao) : AsyncTask<Any, Void, Void>() {
 
             var mAsyncTaskDao: WordDao = dao
 
-            override fun doInBackground(vararg params: Word?): Void? {
-                mAsyncTaskDao.insert(params[0]!!)
+            override fun doInBackground(vararg params: Any?): Void? {
+                when (params[1]) {
+                    1 -> mAsyncTaskDao.insert((params[0] as Word?)!!)
+                    2 -> mAsyncTaskDao.deleteAll()
+                }
                 return null
             }
         }
