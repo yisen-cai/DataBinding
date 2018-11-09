@@ -17,7 +17,7 @@ import top.yisen614.databinding.util.LiveDataTestUtil
 @RunWith(AndroidJUnit4::class)
 class WordRepositoryTest {
 
-    @Rule
+    @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     lateinit var mWordDao: WordDao
@@ -27,12 +27,11 @@ class WordRepositoryTest {
     @Before
     fun createDB() {
         val context = InstrumentationRegistry.getTargetContext()
-
-        mDb = Room.inMemoryDatabaseBuilder(context, MyDatabase::class.java!!)
-            // Allowing main thread queries, just for testing.
+        // 使用的是内存中的数据库, 因此存储的信息会随着进程停止而消失
+        mDb = Room.inMemoryDatabaseBuilder(context, MyDatabase::class.java)
+            // 允许多线程查询, 仅为了测试
             .allowMainThreadQueries()
             .build()
-
         mWordDao = mDb.wordDao()
     }
 
@@ -49,6 +48,10 @@ class WordRepositoryTest {
         val word1 = Word("Word")
         mWordDao.insert(word)
         mWordDao.insert(word1)
+        val words = LiveDataTestUtil.getValue(mWordDao.getAllWords())
+        words.forEach { w ->
+            print(w)
+        }
     }
 
     @Test
