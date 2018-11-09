@@ -7,7 +7,6 @@ import android.arch.persistence.room.Query
 import top.yisen614.databinding.entity.Word
 
 
-
 @Dao
 interface WordDao {
     @Insert

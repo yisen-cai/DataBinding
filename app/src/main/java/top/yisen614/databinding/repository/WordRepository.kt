@@ -9,30 +9,27 @@ import top.yisen614.databinding.entity.Word
 
 
 class WordRepository(application: Application) {
-    lateinit var mWordDao: WordDao
-    lateinit var mAllWords: LiveData<List<Word>>
+
+    var mWordDao: WordDao
+    var mAllWords: LiveData<List<Word>>
 
     init {
-        var db = WordRoomDatabase.getDatabase(application)
+        val db = WordRoomDatabase.getDatabase(application)
         mWordDao = db.wordDao()
         mAllWords = mWordDao.getAllWords()
     }
 
     fun insert(word: Word) {
-        insertAsyncTask(mWordDao).execute(word)
+        InsertAsyncTask(mWordDao).execute(word)
     }
 
     companion object {
-        class insertAsyncTask(dao: WordDao) : AsyncTask<Word, Void, Void>() {
+        class InsertAsyncTask(dao: WordDao) : AsyncTask<Word, Void, Void>() {
 
-            lateinit var mAsyncTaskDao: WordDao
-
-            init {
-                mAsyncTaskDao = dao
-            }
+            var mAsyncTaskDao: WordDao = dao
 
             override fun doInBackground(vararg params: Word?): Void? {
-                mAsyncTaskDao.insert(params.get(0)!!)
+                mAsyncTaskDao.insert(params[0]!!)
                 return null
             }
         }
