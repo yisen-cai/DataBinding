@@ -14,6 +14,7 @@ class WordRepository(application: Application) {
     var mAllWords: LiveData<List<Word>>
 
     init {
+        // 通过实例方法在此创建数据库实例
         val db = MyDatabase.getDatabase(application)
         mWordDao = db.wordDao()
         mAllWords = mWordDao.getAllWords()
@@ -28,6 +29,9 @@ class WordRepository(application: Application) {
     }
 
     companion object {
+        /**
+         * 线程任务, 可以执行多种方法
+         */
         class DataAsyncTask(dao: WordDao) : AsyncTask<Any, Void, Void>() {
 
             var mAsyncTaskDao: WordDao = dao

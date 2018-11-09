@@ -7,6 +7,7 @@ import top.yisen614.databinding.entity.Word
 import top.yisen614.databinding.repository.WordRepository
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
+    // 初始化创建repository
     var mRepository: WordRepository = WordRepository(application)
     var mAllWords: LiveData<List<Word>>
 
