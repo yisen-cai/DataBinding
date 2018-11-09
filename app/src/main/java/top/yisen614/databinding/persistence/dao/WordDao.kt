@@ -1,10 +1,10 @@
-package top.yisen614.databinding.dao
+package top.yisen614.databinding.persistence.dao
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import top.yisen614.databinding.entity.Word
+import top.yisen614.databinding.persistence.entity.Word
 
 /**
  * 在此中加入相应查询方法

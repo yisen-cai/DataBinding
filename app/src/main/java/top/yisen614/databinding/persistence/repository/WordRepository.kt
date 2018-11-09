@@ -1,11 +1,11 @@
-package top.yisen614.databinding.repository
+package top.yisen614.databinding.persistence.repository
 
 import android.app.Application
 import android.arch.lifecycle.LiveData
 import android.os.AsyncTask
-import top.yisen614.databinding.dao.WordDao
-import top.yisen614.databinding.database.MyDatabase
-import top.yisen614.databinding.entity.Word
+import top.yisen614.databinding.persistence.dao.WordDao
+import top.yisen614.databinding.persistence.database.MyDatabase
+import top.yisen614.databinding.persistence.entity.Word
 
 
 class WordRepository(application: Application) {

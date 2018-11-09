@@ -3,8 +3,8 @@ package top.yisen614.databinding.viewModel
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import top.yisen614.databinding.entity.Word
-import top.yisen614.databinding.repository.WordRepository
+import top.yisen614.databinding.persistence.entity.Word
+import top.yisen614.databinding.persistence.repository.WordRepository
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
     // 初始化创建repository

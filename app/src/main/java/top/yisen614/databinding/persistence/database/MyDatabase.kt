@@ -1,4 +1,4 @@
-package top.yisen614.databinding.database
+package top.yisen614.databinding.persistence.database
 
 import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
@@ -6,9 +6,9 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import android.os.AsyncTask
-import top.yisen614.databinding.dao.WordDao
-import top.yisen614.databinding.entity.User
-import top.yisen614.databinding.entity.Word
+import top.yisen614.databinding.persistence.dao.WordDao
+import top.yisen614.databinding.persistence.entity.User
+import top.yisen614.databinding.persistence.entity.Word
 
 @Database(entities = [Word::class, User::class], version = 1)
 abstract class MyDatabase : RoomDatabase() {

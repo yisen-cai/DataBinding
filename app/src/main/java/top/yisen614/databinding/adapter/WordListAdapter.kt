@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import top.yisen614.databinding.R
-import top.yisen614.databinding.entity.Word
+import top.yisen614.databinding.persistence.entity.Word
 
 class WordListAdapter(context: Context) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
 

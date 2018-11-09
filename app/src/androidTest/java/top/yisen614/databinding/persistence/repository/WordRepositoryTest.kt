@@ -1,4 +1,4 @@
-package top.yisen614.databinding.repository
+package top.yisen614.databinding.persistence.repository
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import android.arch.persistence.room.Room
@@ -9,9 +9,9 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import top.yisen614.databinding.dao.WordDao
-import top.yisen614.databinding.database.MyDatabase
-import top.yisen614.databinding.entity.Word
+import top.yisen614.databinding.persistence.dao.WordDao
+import top.yisen614.databinding.persistence.database.MyDatabase
+import top.yisen614.databinding.persistence.entity.Word
 import top.yisen614.databinding.util.LiveDataTestUtil
 
 @RunWith(AndroidJUnit4::class)

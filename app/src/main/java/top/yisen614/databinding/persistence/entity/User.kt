@@ -1,4 +1,4 @@
-package top.yisen614.databinding.entity
+package top.yisen614.databinding.persistence.entity
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
