@@ -12,7 +12,7 @@ import top.yisen614.databinding.persistence.entity.Word
 class WordListAdapter(context: Context) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
 
     val inflater = LayoutInflater.from(context)
-    lateinit var wordItem: List<Word>
+    var wordItem: List<Word> = emptyList()
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): WordViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_item, p0, false)
@@ -24,7 +24,7 @@ class WordListAdapter(context: Context) : RecyclerView.Adapter<WordListAdapter.W
     }
 
     override fun onBindViewHolder(p0: WordViewHolder, p1: Int) {
-        val text = wordItem[0].mWord
+        val text = wordItem[p1].mWord
         p0.setText(text)
     }
 

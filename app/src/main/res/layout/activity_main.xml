@@ -19,7 +19,7 @@
             style="@style/AlertDialog.AppCompat"
             android:src="@drawable/add"
             app:elevation="5dp"
-            android:translationX="5dp"/>
+            android:translationX="5dp" android:onClick="addAction"/>
 
     <android.support.v7.widget.RecyclerView
             android:layout_width="0dp"
