@@ -57,4 +57,9 @@ class MainActivity : AppCompatActivity() {
         const val WORD_CODE = 100
         const val WORD_KEY = "add_word_action"
     }
+
+    fun dataBinding(view: View) {
+        var intent = Intent(this, DataBindingActivity::class.java)
+        startActivity(intent)
+    }
 }

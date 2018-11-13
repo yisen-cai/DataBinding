@@ -16,8 +16,8 @@ class AddActivity : AppCompatActivity() {
 
     fun addWord(view: View) {
         var intent = Intent()
-        if (!"".equals(input_text.text)) {
-            val wordString = input_text.text.toString()
+        if (!"".equals(name_input.text)) {
+            val wordString = name_input.text.toString()
             intent.putExtra(MainActivity.WORD_KEY, wordString)
             setResult(Activity.RESULT_OK, intent)
         } else {
