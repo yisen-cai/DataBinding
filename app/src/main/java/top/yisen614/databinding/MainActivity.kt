@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
             wordViewModel.insert(word)
         } else {
             Toast.makeText(
-                this, getString(R.string.not_create),
-                Toast.LENGTH_LONG
+                    this, getString(R.string.not_create),
+                    Toast.LENGTH_LONG
             ).show()
         }
     }
@@ -58,8 +58,13 @@ class MainActivity : AppCompatActivity() {
         const val WORD_KEY = "add_word_action"
     }
 
+    fun openProduct(view: View) {
+        val intent = Intent(this, ProductActivity::class.java)
+        startActivity(intent)
+    }
+
     fun dataBinding(view: View) {
-        var intent = Intent(this, DataBindingActivity::class.java)
+        val intent = Intent(this, DataBindingActivity::class.java)
         startActivity(intent)
     }
 }

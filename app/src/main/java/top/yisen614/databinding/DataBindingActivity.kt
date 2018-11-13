@@ -13,6 +13,6 @@ class DataBindingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         var binding: ActivityDataBindingBinding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding)
         val binding1: ActivityBindingTestBinding = DataBindingUtil.setContentView(this, R.layout.activity_binding_test)
-        binding1.user = User("yisen614", 10, 10)
+        binding1.user = User("yisen614", 20, 10)
     }
 }
