@@ -8,8 +8,8 @@ import android.view.View
 import top.yisen614.databinding.databinding.ActivityProductBinding
 
 class ProductActivity : AppCompatActivity() {
-    lateinit var product: Product
-    lateinit var binding: ActivityProductBinding
+    private lateinit var product: Product
+    private lateinit var binding: ActivityProductBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
