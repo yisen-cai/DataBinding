@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
             wordViewModel.insert(word)
         } else {
             Toast.makeText(
-                    this, getString(R.string.not_create),
-                    Toast.LENGTH_LONG
+                this, getString(R.string.not_create),
+                Toast.LENGTH_LONG
             ).show()
         }
     }
