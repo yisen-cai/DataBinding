@@ -6,18 +6,10 @@ import android.arch.persistence.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
 @Entity(tableName = "t_user")
-class User(name: String, age: Int, gender: Int) {
+class User(@ColumnInfo(name = "username") @field:NotNull var name: String, var age: Int, var gender: Int) {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0
-
-    @ColumnInfo(name = "username")
-    @NotNull
-    var name: String = name
-
-    var age: Int = age
-
-    var gender: Int = gender
 
 }
