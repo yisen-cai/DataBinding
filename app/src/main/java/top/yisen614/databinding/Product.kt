@@ -15,14 +15,14 @@ class Product(name: String, des: String) : BaseObservable() {
     var name: String = name
         set(value) {
             field = value
-            notifyPropertyChanged(BR.name)
+            notifyPropertyChanged(BR.user)
         }
 
     @get:Bindable
     var des: String = des
         set(value) {
             field = value
-            notifyPropertyChanged(BR.des)
+            notifyPropertyChanged(BR.user)
         }
 
 }

@@ -22,6 +22,6 @@ class ProductActivity : AppCompatActivity() {
     fun showProduct(view: View) {
         Log.i("ProductActivity", product.toString())
         binding.notifyChange()
-        binding.notifyPropertyChanged(BR.des)
+        binding.notifyPropertyChanged(BR.user)
     }
 }
