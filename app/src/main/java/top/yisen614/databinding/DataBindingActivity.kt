@@ -11,8 +11,16 @@ class DataBindingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 通过数据绑定工具类获取绑定实例
         var binding: ActivityDataBindingBinding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding)
+
         val binding1: ActivityBindingTestBinding = DataBindingUtil.setContentView(this, R.layout.activity_binding_test)
-        binding1.user = User("yisen614", 20, 10)
+
+        val user = User(1, "yisen614", 12, 1)
+
+        // 设置绑定用户
+        binding1.user = user
+
     }
 }

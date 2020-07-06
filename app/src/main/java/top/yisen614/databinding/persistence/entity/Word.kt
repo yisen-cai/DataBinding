@@ -10,18 +10,14 @@ import org.jetbrains.annotations.NotNull
  *
  */
 @Entity(tableName = "t_word")
-class Word(word:String) {
+data class Word(
 
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    var mId: Int = 0
+    var mId: Int = 0,
 
     @NonNull
     @ColumnInfo(name = "word")
     @NotNull
     var mWord: String = ""
-
-    init {
-        mWord = word
-    }
-}
+)

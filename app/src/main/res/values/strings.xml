@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">DataBinding</string>
     <string name="not_create">Word Not Created</string>
+    <string name="todo">TODO</string>
+    <string name="channel_name">default</string>
+    <string name="channel_description">default channel</string>
+    <string name="noti_button">Notify</string>
+    <string name="button">Button</string>
 </resources>

@@ -6,21 +6,23 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import android.os.AsyncTask
+import top.yisen614.databinding.persistence.dao.UserDao
 import top.yisen614.databinding.persistence.dao.WordDao
 import top.yisen614.databinding.persistence.entity.User
 import top.yisen614.databinding.persistence.entity.Word
 
-@Database(entities = [Word::class, User::class], version = 1)
+@Database(entities = [Word::class, User::class], version = 1, exportSchema = false)
 abstract class MyDatabase : RoomDatabase() {
 
     abstract fun wordDao(): WordDao
+    abstract fun userDao(): UserDao
 
     companion object {
 
         @Volatile
         var INSTANCE: MyDatabase? = null
 
-        val sRoomDatabase = object : RoomDatabase.Callback() {
+        private val sRoomDatabase = object : RoomDatabase.Callback() {
             override fun onOpen(db: SupportSQLiteDatabase) {
                 super.onOpen(db)
                 PopulateDbAsync(INSTANCE!!).execute()
@@ -49,10 +51,11 @@ abstract class MyDatabase : RoomDatabase() {
 
 
     class PopulateDbAsync(db: MyDatabase) : AsyncTask<Word, Void, Void>() {
-        val wordDao: WordDao = db.wordDao()
+        private val wordDao: WordDao = db.wordDao()
 
         override fun doInBackground(vararg params: Word?): Void? {
-            val word = Word("word")
+            val word = Word()
+            word.mWord = "word"
             wordDao.insert(word)
             return null
         }

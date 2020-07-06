@@ -8,7 +8,7 @@ import top.yisen614.databinding.persistence.repository.WordRepository
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
     // 初始化创建repository
-    var mRepository: WordRepository = WordRepository(application)
+    private var mRepository: WordRepository = WordRepository(application)
     var mAllWords: LiveData<List<Word>>
 
     init {

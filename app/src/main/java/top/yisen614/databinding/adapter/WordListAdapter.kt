@@ -11,7 +11,7 @@ import top.yisen614.databinding.persistence.entity.Word
 
 class WordListAdapter(context: Context) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
 
-    val inflater = LayoutInflater.from(context)
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
     var wordItem: List<Word> = emptyList()
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): WordViewHolder {
